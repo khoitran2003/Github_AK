@@ -1,0 +1,18 @@
+ydata <- read.csv(file = "C:/Users/Admin/test1/ydata.csv")
+options(max.print = 10000)
+names(ydata)
+dim(ydata)
+new_df <- ydata[,c(1,2,4)]
+apply(is.na(new_df), 2, which)
+colSums(is.na(new_df))
+new_df = na.omit(new_df)
+mean = apply(new_df,2,mean)
+median = apply(new_df,2,median)
+sd = apply(new_df,2,sd)
+max = apply(new_df,2,max)
+min = apply(new_df,2,min)
+descriptive = data.frame(mean,median,sd,max,min)
+table(new_df$Xlocation)
+table(new_df$Ylocation)
+hist(new_df$Secondary, xlab = "Secondary", main = "Histogram of Secondary", labels = T, breaks = 10)
+
